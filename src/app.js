@@ -31,21 +31,29 @@ let generateExcuse = () => {
     "on top of my car and i started driving"
   ];
 
-  let pronownIndex = Math.floor(Math.random() * pronown.length);
-  let subjectIndex = Math.floor(Math.random() * subject.length);
-  let actionIndex = Math.floor(Math.random() * action.length);
-  let possessionIndex = Math.floor(Math.random() * possession.length);
-  let whereIndex = Math.floor(Math.random() * where.length);
+  function getRandomIndex(array) {
+    return Math.floor(Math.random() * array.length);
+  }
+
+  function getRandomExcuse(array) {
+    return array[getRandomIndex(array)];
+  }
+
+  let pronownIndex = getRandomIndex(pronown);
+  let subjectIndex = getRandomIndex(subject);
+  let actionIndex = getRandomIndex(action);
+  let possessionIndex = getRandomIndex(possession);
+  let whereIndex = getRandomIndex(where);
 
   return (
-    pronown[pronownIndex] +
+    getRandomExcuse(pronown) +
     " " +
-    subject[subjectIndex] +
+    getRandomExcuse(subject) +
     " " +
-    action[actionIndex] +
+    getRandomExcuse(action) +
     " " +
-    possession[possessionIndex] +
+    getRandomExcuse(possession) +
     " " +
-    where[whereIndex]
+    getRandomExcuse(where)
   );
 };
